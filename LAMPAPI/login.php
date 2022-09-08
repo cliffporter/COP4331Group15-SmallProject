@@ -2,6 +2,7 @@
 
 	$inData = getRequestInfo();
 	
+	//Get fields from clients JSON POST
 	$id = 0;
 	$firstName = "";
 	$lastName = "";
@@ -19,10 +20,16 @@
 		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
 		$stmt->execute();
 		$result = $stmt->get_result();
+		
 
 		//Check if the correct login+password matches a registered user
 		if( $row = $result->fetch_assoc()  )
 		{
+			//Update last logged in time
+			$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn= CURRENT_TIMESTAMP WHERE ID=?;");
+			$stmt->bind_param("s", $row['ID']);
+			$stmt->execute();
+			
 			//Return login success
 			returnWithInfo( $row['firstName'], $row['lastName'], $row['ID'] );
 		}
