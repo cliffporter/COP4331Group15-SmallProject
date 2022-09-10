@@ -1,5 +1,31 @@
-<html>
-<body>
-<h1>We love COP 4331</h1>
-</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script type="text/javascript" src="assets/js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Login Page</h2><br>
+    <div class="login">
+    <form id="login" method="get" action="login.php">
+        <label><b>User Name
+        </b>
+        </label>
+        <input type="text" name="User" id="Uname" placeholder="Username">
+        <br><br>
+        <label><b>Password
+        </b>
+        </label>
+        <input type="Password" name="Password" id="Pass" placeholder="Password">
+        <br><br>
+        <button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Log in </button>
+        <button type="button" id="reg" class="buttons" onclick="doRegister();"> register </button>
+      	<span id="loginResult"></span>
+        <br><br>
+        <br><br>
+    </form>
+</div>
+  </body>
 </html>

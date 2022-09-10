@@ -41,8 +41,8 @@
 				$searchResults .= ",";
 			}
 			$searchCount++;
-			$searchResults .= '{' . '"Name": ' . '"' . $row["Name"] . '",';
-			$searchResults .= '"phoneNumber": ' . '"' . $row["PhoneNumber"] . '",';
+			$searchResults .= '{' . '"name": ' . '"' . $row["Name"] . '",';
+			$searchResults .= '"phoneNumber": ' . '"' . $row["Phone_number"] . '",';
 			$searchResults .= '"email": ' . '"' . $row["Email"] . '",';
 			$searchResults .= '"ID": ' . $row["ID"] . '}';
 		}
