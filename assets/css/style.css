@@ -14,3 +14,83 @@
     02. Footer
 -----------------------------------------------------------------------------------*/
 /*=======  COMMON CSS  =======*/
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:15px;
+  line-height: 1.5;
+  padding:0;
+  margin:0;
+  background-color: #C7B519;
+  color: black;
+}
+
+.intro{
+  height: 100vh;
+  background-image: linear-gradient(to bottom right,#000000,#FBFF00);
+}
+
+.split{
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left{
+  left: 10%;
+}
+
+.right{
+  right: 10%;
+}
+
+.centered{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.login{
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: solid;
+}
+
+.buttons{
+  display: inline-flex;
+  background-color: #6D6D56;
+  color: white;
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.buttons:hover{
+  background-color: #5B5B48;
+}
+
+.buttons:active{
+  background-color: #36362B;
+}
+
+.button__text, .button__icon{
+  display: inline-flex;
+  align-items: center;
+  padding: 0 12px;
+  height: 100%;
+}
+
+.button__icon{
+  font-size: 1.5em;
+}

@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <script type="text/javascript" src="assets/js/login.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
     <meta charset="utf-8">
-    <title></title>
+    <title>COP4331 Grp15 Login</title>
   </head>
+
   <body>
-    <h2>Login Page</h2><br>
-    <div class="login">
-    <form id="login" method="get" action="login.php">
-        <label><b>User Name
-        </b>
-        </label>
+    <header class="intro">
+    </header>
+
+
+    <div class="split left">
+      <div class="centered">
+        <img src="assets/img/knightro.png" alt="knightro">
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="centered">
+        <div class="login">
+        <form id="login" method="get" action="login.php">
+
+          <h1>Contact Manager</h1>
+
+        <label><b>Username</b></label>
         <input type="text" name="User" id="Uname" placeholder="Username">
+
         <br><br>
-        <label><b>Password
-        </b>
-        </label>
+
+        <label><b>Password</b></label>
         <input type="Password" name="Password" id="Pass" placeholder="Password">
+
         <br><br>
+
         <button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Log in </button>
         <button type="button" id="reg" class="buttons" onclick="doRegister();"> register </button>
       	<span id="loginResult"></span>
         <br><br>
         <br><br>
-    </form>
-</div>
+
+        </form>
+        </div>
+      </div>
+    </div>
+
   </body>
+
 </html>
