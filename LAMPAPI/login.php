@@ -65,6 +65,8 @@
 		sendResultInfoAsJson( $retValue );
 	}
 	
+	//Return JSON to user with the users info
+	//PARAM: $firstName, $lastName, $id from database
 	function returnWithInfo( $firstName, $lastName, $id )
 	{
 		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';

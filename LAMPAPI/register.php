@@ -35,8 +35,16 @@
 			$stmt->bind_param("ssss", $firstName, $lastName, $login, $password);
 			$stmt->execute();
 
-			//Return a blank error (success)
-			returnWithError("");
+			//Get the new users ID
+			$stmt = $conn->prepare("SELECT ID FROM Users WHERE Login=? AND Password =?");
+			$stmt->bind_param("ss", $login, $password);
+			$stmt->execute();
+			$result = $stmt->get_result();
+			$row = $result->fetch_assoc();
+			$id = $row['ID'];
+
+			//Return the new users info
+			returnWithInfo($firstName, $lastName, $id);
 		}
 
 		$stmt->close();
@@ -56,6 +64,14 @@
 	{
 		header('Content-type: application/json');
 		echo $obj;
+	}
+	
+	//Return JSON to user with the users info
+	//PARAM: $firstName, $lastName, $id from database
+	function returnWithInfo( $firstName, $lastName, $id )
+	{
+		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+		sendResultInfoAsJson( $retValue );
 	}
 	
 	//Return JSON to user with an error message
