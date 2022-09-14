@@ -26,7 +26,7 @@ body{
 
 .intro{
   height: 100vh;
-  background-image: linear-gradient(to bottom right,#000000,#FBFF00);
+  background-image: linear-gradient(#BA9B37,#FFC904,#BA9B37,#FFC904);
 }
 
 .split{
