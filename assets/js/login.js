@@ -64,7 +64,50 @@ function saveCookie()
 	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
+
+
 function doRegister()
 {
-	window.location.href="register.html";
+userId = 0;
+
+let login = document.getElementById("Usernamereg").value;
+let password = document.getElementById("Passwordreg").value;
+let firstName = document.getElementById("FirstName").value;
+let lastName = document.getElementById("LastName").value;
+
+
+document.getElementById("RegisterResult").innerHTML = "";
+
+let tmp = {login:login, password:password, firstName:firstName, lastName:lastName };
+let jsonPayload = JSON.stringify( tmp );
+
+let url = urlBase + '/register.' + extension;
+
+let xhr = new XMLHttpRequest();
+xhr.open("POST", url, true);
+xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+try
+{
+	xhr.onreadystatechange = function()
+	{
+		console.log(xhr.responseText);
+		if (this.readyState == 4 && this.status == 200)
+		{
+			let jsonObject = JSON.parse( xhr.responseText );
+			console.log(jsonObject);
+			userId = jsonObject.id;
+
+			if( userId == 0 )
+			{
+				document.getElementById("RegisterResult").innerHTML = "Username already exists! Please try another username!";
+				return;
+			}
+		}
+	};
+	xhr.send(jsonPayload);
+}
+catch(err)
+{
+	document.getElementById("loginResult").innerHTML = err.message;
+}
 }
