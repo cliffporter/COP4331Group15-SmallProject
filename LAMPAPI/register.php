@@ -10,9 +10,16 @@
 
 	//Connect to mySQL
 	$conn = new mysqli("localhost", "Beast", "COP4331", "CONTACT_MANAGER"); 
+
+	if($login == "" || $password == "" || $firstName == "" || $lastName=="")
+	{
+	  returnWithError( -1, "Null Value." );
+	  die();
+	}
+
 	if( $conn->connect_error )
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError( -10, $conn->connect_error );
 	}
 	else
 	{
@@ -26,7 +33,7 @@
 		if( $row = $result->fetch_assoc()  ) 
 		{
 			//A user with a matching login was found
-			returnWithError("User already exists");
+			returnWithError( 0, "User already exists");
 		}
 		else 
 		{	
@@ -76,9 +83,9 @@
 	
 	//Return JSON to user with an error message
 	//PARAM: $err - the message string
-	function returnWithError( $err )
+	function returnWithError($errID ,$errSTR )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"id":"' . $errID . '","firstName":"","lastName":"","error":"' . $errSTR . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	
