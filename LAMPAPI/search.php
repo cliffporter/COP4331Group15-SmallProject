@@ -4,6 +4,8 @@
 
     $userid = $inData["userID"];
 	$string = "%" . $inData["search"] . "%";
+	$pageSize = $inData["pageSize"];
+	$pageNum = $inData["pageNum"];
 
     $searchCount = 0;
 	$searchResults = "";
@@ -16,17 +18,17 @@
 	}
 	else
 	{
+		$offsetAmt = $pageSize * ($pageNum-1);
 		if ($inData["search"] == "")
 		{
-            
-			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=?");
-			$stmt->bind_param("s", $userid);
+			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? ORDER BY Name LIMIT ? OFFSET ?");
+			$stmt->bind_param("sss", $userid, $pageSize, $offsetAmt);
             
 		}
 		else
 		{
-			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE Name LIKE ? AND UserID=?");
-			$stmt->bind_param("ss", $string, $userid);
+			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE Name LIKE ? AND UserID=? ORDER BY Name LIMIT ? OFFSET ?");
+			$stmt->bind_param("ssss", $string, $userid, $pageSize, $offsetAmt);
             
             
 		}
@@ -43,8 +45,11 @@
 			$searchCount++;
 			$searchResults .= '{' . '"name": ' . '"' . $row["Name"] . '",';
 			$searchResults .= '"phoneNumber": ' . '"' . $row["Phone_number"] . '",';
-			$searchResults .= '"email": ' . '"' . $row["Email"] . '",';
-			$searchResults .= '"ID": ' . $row["ID"] . '}';
+			$searchResults .= '"email": ' . '"' . $row["Email"] . '"}';
+			//the front end dosent need the database ID for each contact since its just the table index
+			// $searchResults .= '"email": ' . '"' . $row["Email"] . '",';
+			// $searchResults .= '"ID": ' . $row["ID"] . '}';
+
 		}
 
 		if( $searchCount == 0 )
