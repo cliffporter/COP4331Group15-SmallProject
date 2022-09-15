@@ -45,10 +45,8 @@
 			$searchCount++;
 			$searchResults .= '{' . '"name": ' . '"' . $row["Name"] . '",';
 			$searchResults .= '"phoneNumber": ' . '"' . $row["Phone_number"] . '",';
-			$searchResults .= '"email": ' . '"' . $row["Email"] . '"}';
-			//the front end dosent need the database ID for each contact since its just the table index
-			// $searchResults .= '"email": ' . '"' . $row["Email"] . '",';
-			// $searchResults .= '"ID": ' . $row["ID"] . '}';
+			$searchResults .= '"email": ' . '"' . $row["Email"] . '",';
+			$searchResults .= '"ID": ' . $row["ID"] . '}';
 
 		}
 
