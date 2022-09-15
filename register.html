@@ -4,42 +4,54 @@
     <meta charset="utf-8">
     <title>Small Project Register</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
   </head>
 
   <body>
-    <center>
+    <header class="intro">
+    </header>
 
-      <h3>Register</h3>
+    <div class="split left">
+      <div class="centered">
+        <img src="assets/img/knightro.png" alt="knightro" width="400" height="400">
+      </div>
+    </div>
 
-      <form action="Register.php" method="post">
+    <div class="split right">
+      <div class="centered">
+        <div class="register">
+        <form id="register" action="Register.php" method="post">
+          <h1>Register</h1>
+          <table>
+            <tr>
+              <td>First Name:</td>
+              <td><input type="text" name="first_name" placeholder="Enter first name here"></td>
+            </tr>
 
-        <table>
-          <tr>
-            <td>First Name:</td>
-            <td><input type="text" name="first_name" placeholder="Enter first name here"></td>
-          </tr>
+            <tr>
+              <td>Last Name:</td>
+              <td><input type="text" name="last_name" placeholder="Enter last name here"></td>
+            </tr>
 
-          <tr>
-            <td>Last Name:</td>
-            <td><input type="text" name="last_name" placeholder="Enter last name here"></td>
-          </tr>
+            <tr>
+              <td>Username:</td>
+              <td><input type="text" name="user" placeholder="Enter name here"></td>
+            </tr>
 
-          <tr>
-            <td>Username:</td>
-            <td><input type="text" name="user" placeholder="Enter name here"></td>
-          </tr>
+            <tr>
+              <td>Password:</td>
+              <td><input type="password" name="user_pass" placeholder="Enter password here"></td>
+            </tr>
 
-          <tr>
-            <td>Password:</td>
-            <td><input type="password" name="user_pass" placeholder="Enter password here"></td>
-          </tr>
-
-          <tr>
-            <td><input type="submit" name="submit" value="Register"></td>
-          </tr>
-        </table>
-
-    </center>
-
+            <tr>
+              <td><input type="submit" name="submit" value="Register" class="buttons"></td>
+            </tr>
+          </table>
+          <br><br>
+        </form>
+        </div>
+        <button id=back class="buttons">Go Back</button>
+      </div>
+    </div>
   </body>
 </html>

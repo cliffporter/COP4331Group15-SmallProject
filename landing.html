@@ -1,12 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
   <head>
-    <<p>guard me</p>
-    <meta charset="utf-8">
-    <title></title>
+    <title>Contact Manager</title>
+    <script type="text/javascript" src="js/code.js"></script>
+    <link href="assets/css/style2.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-  </head>
-  <body>
+</head>
 
-  </body>
+<!-- header -->
+<body>
+  <header class="intro">
+  </header>
+
+
+  <div class= "header"><h1 style="font-size:45px">Contact Manager</h1>
+  <!-- Search Bar -->
+  <form action="/form/submit" method="GET" class= "formsearch">
+    <input type="text" name="text" class= "search" placeholder="Search Contact here!">
+    <input type="submit" name="submit" class="submit" value="Search">
+  </form>
+  </div>
+
+<!-- Add new Contact -->
+<div class="contentcontainer">
+  <div style= "background-color: #A4A280; color:#FFFFFF; padding-top: 25px; padding-right: 50px; padding-left: 50px; padding-bottom: 25px">
+      <form action="/action_page.php" display: "inline-flex" class= "formadd">
+      <label for="newFirst">Name:</label>
+      <input type="text" id="newName" name="newName"><br><br>
+      <label for="newLast">Last Name:</label>
+      <input type="text" id="newLast" name="newLast">
+      <br><br>
+      <label for="newEmail">Email:</label>
+      <input type="text" id="newEmail" name="newEmail">
+      <br><br>
+      <input type="submit" class= "submitcontact" value="Add Contact">
+      <input type="submit" class= "submitcontact" value="Delete Contact">
+      <input type="submit" class= "submitcontact" value="Edit Contact">
+    </form>
+  </div>
+</div>
+
+<!-- search results right side -->
+
+</body>
 </html>

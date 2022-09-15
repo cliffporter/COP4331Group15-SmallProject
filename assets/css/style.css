@@ -61,6 +61,12 @@ body{
   border-style: solid;
 }
 
+.register{
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: solid;
+}
+
 .buttons{
   display: inline-flex;
   background-color: #6D6D56;
