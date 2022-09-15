@@ -97,9 +97,21 @@ try
 			console.log(jsonObject);
 			userId = jsonObject.id;
 
+			if( userId == -1 )
+			{
+				document.getElementById("RegisterResult").innerHTML = "Please ensure all fields are filled out!";
+				return;
+			}
+
 			if( userId == 0 )
 			{
 				document.getElementById("RegisterResult").innerHTML = "Username already exists! Please try another username!";
+				return;
+			}
+
+			if( userId == -10 )
+			{
+				document.getElementById("RegisterResult").innerHTML = "Server not responding";
 				return;
 			}
 		}
