@@ -25,14 +25,10 @@ body{
   color: black;
 }
 
-/*.intro{
-  height: 100vh;
-  background-image: linear-gradient(#BA9B37,#FFC904,#BA9B37,#FFC904);
-}*/
 
 /* Search Box */
 .formsearch {
-  width: 900px;
+  width: 800px;
   margin: auto;
   text-align: right;
   margin-top: 100px;
@@ -47,7 +43,7 @@ input {
 }
 
 .search {
-  width: 100%;
+  width: 90%;
 }
 
 .submit {
@@ -59,11 +55,20 @@ input {
 }
 
 .submitcontact{
-  width: 250px;
+  width: 175px;
   background-color: #6D6D56;
   font-family: 'Fredoka One', cursive;
   color: #ffffff;
   height: 50px;
-  font-size: 30px;
+  font-size: 20px;
   display: inline-block;
+}
+
+.inputTags{
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+}
+
+.userInput{
+  width: 500px;
 }

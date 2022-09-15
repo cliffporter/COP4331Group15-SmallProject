@@ -12,9 +12,6 @@
 
 <!-- header -->
 <body>
-  <header class="intro">
-  </header>
-
 
   <div class= "header"><h1 style="font-size:45px">Contact Manager</h1>
   <!-- Search Bar -->
@@ -28,13 +25,17 @@
 <div class="contentcontainer">
   <div style= "background-color: #A4A280; color:#FFFFFF; padding-top: 25px; padding-right: 50px; padding-left: 50px; padding-bottom: 25px">
       <form action="/action_page.php" display: "inline-flex" class= "formadd">
-      <label for="newFirst">Name:</label>
-      <input type="text" id="newName" name="newName"><br><br>
-      <label for="newLast">Last Name:</label>
-      <input type="text" id="newLast" name="newLast">
+      <label for="newFirst" class="inputTags">Name:</label>
+      <br>
+      <input type="text" id="newName" name="newName" class="userInput">
       <br><br>
-      <label for="newEmail">Email:</label>
-      <input type="text" id="newEmail" name="newEmail">
+      <label for="newLast" class="inputTags">Last Name:</label>
+      <br>
+      <input type="text" id="newLast" name="newLast" class="userInput">
+      <br><br>
+      <label for="newEmail" class="inputTags">Email:</label>
+      <br>
+      <input type="text" id="newEmail" name="newEmail" class="userInput">
       <br><br>
       <input type="submit" class= "submitcontact" value="Add Contact">
       <input type="submit" class= "submitcontact" value="Delete Contact">
