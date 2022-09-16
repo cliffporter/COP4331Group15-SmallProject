@@ -3,10 +3,13 @@
 	$inData = getRequestInfo();
 	
 	//Get fields from clients JSON POST
-	$name = $inData["name"];
+	$name = "%" . $inData["name"] . "%";
 	$phoneNumber = $inData["phoneNumber"];
 	$email = $inData["email"];
 	$id = $inData["id"];
+
+	$searchCount = 0;
+	$searchResults = "";
 
 	//Connect to mySQL
 	$conn = new mysqli("localhost", "Beast", "COP4331", "CONTACT_MANAGER"); 
@@ -22,13 +25,29 @@
 	else
 	{
 		//Search for a contact owned by the user with the same name
-		$stmt = $conn->prepare("SELECT ID FROM Contacts WHERE Name=? AND UserID=?");
-		$stmt->bind_param("ss", $name, $userID);
+		$stmt = $conn->prepare("SELECT * FROM Contacts WHERE Name LIKE ?");
+		$stmt->bind_param("s", $name);
 		$stmt->execute();
 		$result = $stmt->get_result();
 		
+		//Process results into a string
+		while($row = $result->fetch_assoc())
+		{
+			if( $searchCount > 0 )
+			{
+				$searchResults .= ",";
+			}
+			$searchCount++;
+			$searchResults .= '{' . '"name": ' . '"' . $row["Name"] . '",';
+			$searchResults .= '"phoneNumber": ' . '"' . $row["Phone_number"] . '",';
+			$searchResults .= '"email": ' . '"' . $row["Email"] . '",';
+			$searchResults .= '"id": ' . $row["ID"] . '}';
+
+		}
+
+		
 		//Check if a duplicate contact exists
-		if( $row = $result->fetch_assoc()  ) 
+		if( $searchCount != 1 ) 
 		{
 			//A duplicate entry was found in the users contacts
 			returnWithError( 0, "A duplicate contact exists, enter a diffrent name");
