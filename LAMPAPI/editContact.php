@@ -12,19 +12,45 @@
 	$conn = new mysqli("localhost", "Beast", "COP4331", "CONTACT_MANAGER"); 
 	if( $conn->connect_error )
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError(-10, $conn->connect_error );
+	}
+	else if ( $name == "")
+	{
+		//Do not allow Contacts with no name
+		returnWithError( -1, "null value in name");
 	}
 	else
 	{
-		//Update the contact
-		$stmt = $conn->prepare("UPDATE Contacts SET Name=?, Phone_number=?, Email=? WHERE ID=?;");
-		$stmt->bind_param("ssss", $name, $phoneNumber, $email, $id);
+		//Search for a contact owned by the user with the same name
+		$stmt = $conn->prepare("SELECT ID FROM Contacts WHERE Name=? AND UserID=?");
+		$stmt->bind_param("ss", $name, $userID);
 		$stmt->execute();
+		$result = $stmt->get_result();
+		
+		//Check if a duplicate contact exists
+		if( $row = $result->fetch_assoc()  ) 
+		{
+			//A duplicate entry was found in the users contacts
+			returnWithError( 0, "A duplicate contact exists, enter a diffrent name");
+		}
+		else
+		{
+			//Update the contact
+			$stmt = $conn->prepare("UPDATE Contacts SET Name=?, Phone_number=?, Email=? WHERE ID=?;");
+			$stmt->bind_param("ssss", $name, $phoneNumber, $email, $id);
+			$stmt->execute();
 
-		//Return a blank error (success)
-		returnWithError("");
-	
-
+			//Check if anything was edited
+			if( $row = $stmt->affected_rows  ) 
+			{
+				returnWithError(1, "contact edited");
+			}
+			else
+			{
+				returnWithError(0, "no contacts updated (ID not found or edit matches current value)");
+			}
+		
+		}
 		$stmt->close();
 		$conn->close();
 	}
@@ -45,10 +71,11 @@
 	}
 	
 	//Return JSON to user with an error message
-	//PARAM: $err - the message string
-	function returnWithError( $err )
+	//PARAM: $errID - the ID of the specific error
+	//       $errSTR - a message describing the error, mostly for debugging
+	function returnWithError($errID, $errSTR)
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"id":"' . $errID . '","error":"' . $errSTR . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

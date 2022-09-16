@@ -11,7 +11,7 @@
 	$conn = new mysqli("localhost", "Beast", "COP4331", "CONTACT_MANAGER"); 	
 	if( $conn->connect_error )
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError(-10, $conn->connect_error );
 	}
 	else
 	{
@@ -35,7 +35,7 @@
 		}
 		else
 		{
-			returnWithError("No Records Found");
+			returnWithError(0, "No Records Found");
 		}
 
 		$stmt->close();
@@ -58,10 +58,11 @@
 	}
 	
 	//Return JSON to user with an error message
-	//PARAM: $err - the message string
-	function returnWithError( $err )
+	//PARAM: $errID - the ID of the specific error
+	//       $errSTR - a message describing the error, mostly for debugging
+	function returnWithError($errID, $errSTR)
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"id":"' . $errID . '","error":"' . $errSTR . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

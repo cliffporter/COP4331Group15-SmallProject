@@ -9,7 +9,7 @@
 	$conn = new mysqli("localhost", "Beast", "COP4331", "CONTACT_MANAGER");		
 	if( $conn->connect_error )
 	{
-		returnWithError( $conn->connect_error );
+		returnWithError(-10,  $conn->connect_error );
 	}
 	else
 	{
@@ -18,8 +18,17 @@
 		$stmt->bind_param("s", $id);
 		$stmt->execute();
 
-		//Return a blank error (success)
-		returnWithError("");
+
+		//Check if anything was deleted
+		//See : https://stackoverflow.com/questions/2966418/check-mysql-query-results-if-delete-query-worked
+		if( $row = $stmt->affected_rows  ) 
+		{
+			returnWithError(1, "contact deleted");
+		}
+		else
+		{
+			returnWithError(0, "contact not found");
+		}
 	
 
 		$stmt->close();
@@ -42,10 +51,11 @@
 	}
 	
 	//Return JSON to user with an error message
-	//PARAM: $err - the message string
-	function returnWithError( $err )
+	//PARAM: $errID - the ID of the specific error
+	//       $errSTR - a message describing the error, mostly for debugging
+	function returnWithError($errID, $errSTR)
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"id":"' . $errID . '","error":"' . $errSTR . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

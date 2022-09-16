@@ -82,7 +82,8 @@
 	}
 	
 	//Return JSON to user with an error message
-	//PARAM: $err - the message string
+	//PARAM: $errID - the ID of the specific error
+	//       $errSTR - a message describing the error, mostly for debugging
 	function returnWithError($errID ,$errSTR )
 	{
 		$retValue = '{"id":"' . $errID . '","firstName":"","lastName":"","error":"' . $errSTR . '"}';
