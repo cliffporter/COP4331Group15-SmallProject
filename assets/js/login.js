@@ -152,12 +152,46 @@ function doSearch()
 }
 function logOut()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	//document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
+	// userId = 0;
+	// firstName = "";
+	// lastName = "";
+	// //document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	// window.location.href = "index.html";
 }
+
+function readCookie()
+{
+    userId = -1;
+    let data = document.cookie;
+    let splits = data.split(",");
+    for(var i = 0; i < splits.length; i++)
+    {
+        let thisOne = splits[i].trim();
+        let tokens = thisOne.split("=");
+        if( tokens[0] == "firstName" )
+        {
+            firstName = tokens[1];
+        }
+        else if( tokens[0] == "lastName" )
+        {
+            lastName = tokens[1];
+        }
+        else if( tokens[0] == "userId" )
+        {
+            userId = parseInt( tokens[1].trim() );
+        }
+    }
+
+    if( userId < 0 )
+    {
+        window.location.href = "index.html";
+    }
+    else
+    {
+        document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+    }
+}
+
 function doEdit()
 {
 
@@ -168,13 +202,14 @@ function doDelete()
 }
 function doAdd()
 {
-	let addFirstName = document.getElementById("newFirst").value;
+	let addFirstName = document.getElementById("newName").value;
 	let addLastName = document.getElementById("newLast").value;
 	let addEmail = document.getElementById("newEmail").value;
 	let addPhone = document.getElementById("newPhone").value;
 	document.getElementById("AddResult").innerHTML = "";
+	let fullName = addFirstName + " " + addLastName;
 
-	let tmp = {Phone:addPhone,FirstName:addFirstName,LastName:addLastName,UserID:userId,Email:addEmail};
+	let tmp = {phoneNumber:addPhone,name:fullName,userID:userId,email:addEmail};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/addContact.' + extension;
