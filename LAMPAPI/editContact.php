@@ -3,7 +3,7 @@
 	$inData = getRequestInfo();
 	
 	//Get fields from clients JSON POST
-	$name = "%" . $inData["name"] . "%";
+	$name = $inData["name"];
 	$phoneNumber = $inData["phoneNumber"];
 	$email = $inData["email"];
 	$id = $inData["id"];
