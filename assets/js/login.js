@@ -150,6 +150,14 @@ function doSearch()
 {
 
 }
+function logOut()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	//document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	window.location.href = "index.html";
+}
 function doEdit()
 {
 
@@ -160,5 +168,35 @@ function doDelete()
 }
 function doAdd()
 {
-	
+	let addFirstName = document.getElementById("newFirst").value;
+	let addLastName = document.getElementById("newLast").value;
+	let addEmail = document.getElementById("newEmail").value;
+	let addPhone = document.getElementById("newPhone").value;
+	document.getElementById("AddResult").innerHTML = "";
+
+	let tmp = {Phone:addPhone,FirstName:addFirstName,LastName:addLastName,UserID:userId,Email:addEmail};
+	let jsonPayload = JSON.stringify( tmp );
+
+	let url = urlBase + '/addContact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				document.getElementById("AddResult").innerHTML = "Contact has been added";
+
+				//setTimeout(function(){window.location.href = "contact.html";}, 1000);
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("AddResult").innerHTML = err.message;
+	}
 }
