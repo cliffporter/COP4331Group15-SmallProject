@@ -144,3 +144,21 @@ catch(err)
 	document.getElementById("loginResult").innerHTML = err.message;
 }
 }
+
+
+function doSearch()
+{
+
+}
+function doEdit()
+{
+
+}
+function doDelete()
+{
+
+}
+function doAdd()
+{
+	
+}

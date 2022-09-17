@@ -25,7 +25,7 @@
 <div class="contentcontainer">
   <div style= "background-color: #A4A280; color:#FFFFFF; padding-top: 25px; padding-right: 50px; padding-left: 50px; padding-bottom: 25px">
       <form action="/action_page.php" display: "inline-flex" class= "formadd">
-      <label for="newFirst" class="inputTags">Name:</label>
+      <label for="newFirst" class="inputTags">First Name:</label>
       <br>
       <input type="text" id="newName" name="newName" class="userInput">
       <br><br>
@@ -37,7 +37,11 @@
       <br>
       <input type="text" id="newEmail" name="newEmail" class="userInput">
       <br><br>
-      <input type="submit" class= "submitcontact" value="Add Contact">
+      <label for="newPhone" class="inputTags">Phone Number:</label>
+      <br>
+      <input type="text" id="newPhone" name="newPhone" class="userInput">
+      <br><br>
+      <input type="submit" class= "submitcontact" value="Add Contact" onclick="doAdd();">
       <input type="submit" class= "submitcontact" value="Delete Contact">
       <input type="submit" class= "submitcontact" value="Edit Contact">
     </form>
