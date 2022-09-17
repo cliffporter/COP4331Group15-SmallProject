@@ -35,6 +35,39 @@ body{
   font-family: 'Fredoka One', cursive;
 }
 
+.contentcontainer{
+  width: 50%;
+  float: left;
+}
+
+.contactListTable{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 400px;
+}
+
+.contactListTable thead tr{
+  background-color: #A4A280;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.contactListTable td{
+  padding: 12px 15px;
+}
+
+.contactListTable tbody tr{
+  border-bottom: 1px solid #dddddd;
+}
+
+.contactListTable tbody tr:nth-of-type(even){
+  background-color: #f3f3f3;
+}
+
+.contactListTable tbody tr:nth-last-of-type{
+  border-bottom: #000000;
+}
 
 input {
   padding: 2px 10px;
