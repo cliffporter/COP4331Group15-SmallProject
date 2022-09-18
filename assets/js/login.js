@@ -194,14 +194,14 @@ function readCookie()
 function doSearch()
 {
 	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+	//document.getElementById("colorSearchResult").innerHTML = "";
 
-	let colorList = "";
+	let contactList = "";
 
-	let tmp = {search:srch,userId:userId};
+	let tmp = {search:srch,userID:userId, pageSize:100, pageNum:1};
 	let jsonPayload = JSON.stringify( tmp );
 
-	let url = urlBase + '/SearchColors.' + extension;
+	let url = urlBase + '/search.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -212,19 +212,23 @@ function doSearch()
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
+				//document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
 				let jsonObject = JSON.parse( xhr.responseText );
 
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
-					colorList += jsonObject.results[i];
+					contactList+="<tr>"
+					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
+					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
+					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
 					if( i < jsonObject.results.length - 1 )
 					{
-						colorList += "<br />\r\n";
+
+						contactList += "</tr>";
 					}
 				}
 
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
+				document.getElementsByTagName("tbody")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
@@ -240,10 +244,44 @@ function doEdit()
 {
 
 }
-function doDelete()
-{
 
-}
+// function doDelete()
+// {
+// 	// (contact) = passed jsonObject.results[i]
+// 	// let id = contact["ID"];
+// 	let id = str["ID"];
+// 	let tmp = {ID:id};
+// 	let jsonPayload = JSON.stringify( tmp );
+//
+// 	let url = urlBase + '/deleteContact.' + extension;
+//
+// 	let xhr = new XMLHttpRequest();
+// 	xhr.open("POST", url, true);
+// 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+// 	try
+// 	{
+// 		xhr.onreadystatechange = function()
+// 		{
+// 			if (this.readyState == 4 && this.status == 200)
+// 			{
+// 				// remove entire row/contact from list
+// 				// refresh page
+//
+// 				document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
+//
+// 				window.location.reload();
+// 			}
+// 		};
+// 		xhr.send(jsonPayload);
+// 	}
+// 	catch(err)
+// 	{
+// 		document.getElementById("contactDeleteResult").innerHTML = err.message;
+// 	}
+// }
+
+
+
 function doAdd()
 {
 	let addFirstName = document.getElementById("newName").value;

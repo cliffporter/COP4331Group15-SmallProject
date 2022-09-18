@@ -8,12 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <!--<script type="text/javascript">
+    <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function()
     {
         readCookie();
     }, false);
-  </script>-->
+  </script>
 </head>
 
 <!-- header -->
@@ -21,10 +21,8 @@
 
   <div class= "header"><h1 style="font-size:45px">Contact Manager</h1>
   <!-- Search Bar -->
-  <form action="/form/submit" method="GET" class= "formsearch">
-    <input type="text" name="text" class= "search" placeholder="Search Contact here!">
-    <input type="submit" name="submit" class="submit" value="Search">
-  </form>
+    <input type="text" name="text" id="searchText" class= "search" placeholder="Search Contact here!">
+    <button type="button" class="buttons" onclick="doSearch();"> Search! </button>
   </div>
 
 <!-- Add new Contact -->
@@ -56,7 +54,7 @@
 </div>
 
 <div class="contentcontainer">
-    <table class="contactListTable">
+    <table class="contactListTable" id="contactList">
       <thead>
         <tr>
           <th>Name</th>
@@ -67,27 +65,6 @@
         </tr>
       </thead>
       <tbody id="contactList">
-        <tr>
-          <th>Leroy Jenkins</th>
-          <th>LJenkins@hotmail.net</th>
-          <th>123-456-7890</th>
-          <th><button>Edit</button></th>
-          <th><button>Delete</button></th>
-        </tr>
-        <tr>
-          <th>Herold Parker</th>
-          <th>HParker@gemail.net</th>
-          <th>123-456-7890</th>
-          <th><button>Edit</button></th>
-          <th><button>Delete</button></th>
-        </tr>
-        <tr>
-          <th>John Doe</th>
-          <th>JDoe@aol.net</th>
-          <th>123-456-7890</th>
-          <th><button>Edit</button></th>
-          <th><button>Delete</button></th>
-        </tr>
       </tbody>
     </table>
 </div>
