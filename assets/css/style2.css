@@ -44,7 +44,7 @@ body{
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
-  min-width: 400px;
+  min-width: 100%;
 }
 
 .contactListTable thead tr{
@@ -55,14 +55,17 @@ body{
 
 .contactListTable td{
   padding: 12px 15px;
+
 }
 
 .contactListTable tbody tr{
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #000000;
+  background-color: #FFC904;
+  text-align: left;
 }
 
 .contactListTable tbody tr:nth-of-type(even){
-  background-color: #f3f3f3;
+  background-color: #D4AE23;
 }
 
 .contactListTable tbody tr:nth-last-of-type{
@@ -104,4 +107,27 @@ input {
 
 .userInput{
   width: 500px;
+}
+
+.buttons{
+  display: inline-flex;
+  background-color: #6D6D56;
+  color: white;
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.buttons:hover{
+  background-color: #5B5B48;
+}
+
+.buttons:active{
+  background-color: #36362B;
 }

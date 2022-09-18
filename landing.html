@@ -19,7 +19,9 @@
 <!-- header -->
 <body>
 
-  <div class= "header"><h1 style="font-size:45px">Contact Manager</h1>
+  <div class= "header">
+    <h1 style="font-size:45px">Contact Manager</h1>
+    <br>
   <!-- Search Bar -->
     <input type="text" name="text" id="searchText" class= "search" placeholder="Search Contact here!">
     <button type="button" class="buttons" onclick="doSearch();"> Search! </button>
@@ -60,11 +62,13 @@
           <th>Name</th>
           <th>Email</th>
           <th>Number</th>
-          <th></th>
+          <th>Edit</th>
+          <th>Delete</th>
           <th></th>
         </tr>
       </thead>
       <tbody id="contactList">
+        
       </tbody>
     </table>
 </div>
