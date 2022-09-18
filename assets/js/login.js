@@ -146,10 +146,7 @@ catch(err)
 }
 
 
-function doSearch()
-{
 
-}
 function logOut()
 {
 	userId = 0;
@@ -221,6 +218,8 @@ function doSearch()
 					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
+					contactList += '<td><button type="button" onclick="onDeleteRow()" class="buttons">Edit</button></td>';
+					contactList += '<td><button type="button" onclick="onDeleteRow()" class="buttons">Delete</button></td>';
 					if( i < jsonObject.results.length - 1 )
 					{
 
@@ -239,6 +238,13 @@ function doSearch()
 	}
 
 }
+
+function onDeleteRow(){
+	alert('pog');
+}
+
+
+
 
 function doEdit()
 {
@@ -316,4 +322,5 @@ function doAdd()
 	{
 		document.getElementById("AddResult").innerHTML = err.message;
 	}
+
 }
