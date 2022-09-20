@@ -1,17 +1,16 @@
 /*Header*/
-
 .header{
   height: 300px;
   width: 100%;
+  text-shadow: 2px 2px #3f3f3f;
 }
-
 .header button{
   font-family: 'Fredoka One', cursive;
   height: 40px;
   font-size: 25px;
   text-align: right;
+  text-shadow: 2px 2px #3f3f3f;
 }
-
 .header input{
   height: 40px;
   width: 600px;
@@ -19,7 +18,6 @@
   margin-top: 60px;
   text-align= right;
 }
-
 .header h1{
   line-height: 5.5;
   text-align: center;
@@ -29,7 +27,7 @@
   font-family: 'Fredoka One', cursive;
 }
 
-
+/* Body */
 body{
   font-family: Arial, Helvetica, sans-serif;
   font-size:15px;
@@ -39,6 +37,11 @@ body{
   background-color: #C7B519;
   background-image: linear-gradient(#BA9B37,#FFC904,#BA9B37,#FFC904);
   color: black;
+}
+input{
+  padding: 2px 10px;
+  border: 0;
+  font-size: 20px;
 }
 
 
@@ -51,98 +54,81 @@ body{
   font-family: 'Fredoka One', cursive;
 }
 
-.contentcontainer h1{
+/*Content Container left and right*/
+.contentcontainerL{
+  width: 30%;
+  float: left;
+}
+.contentcontainerR{
+  width: 65%;
+  float: left;
+  margin-left: 5%
+}
+
+/* Add Contact Box (left) */
+.addContactBox{
+  background-color: #A4A280;
+  color:#FFFFFF;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 1px;
+  text-align: left;
+  font-size: 25px;
+  text-shadow: 2px 2px #3f3f3f;
+  border: solid;
+  border-color: #000;
+}
+.addContactBox h1{
   font-family: 'Fredoka One', cursive;
   font-size:45px;
   text-align: center;
 }
-
-.contentcontainer{
-  width: 50%;
+.addContactBox button{
+  width: 170px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  text-align: left;
   float: left;
-  font-family: 'Fredoka One', cursive;
-  font-size: 25px;
-  text-align: left;
-}
-
-
-.contentcontainer button{
-  width: 18%;
-  font-family: 'Fredoka One', cursive;
-  font-size: 20px;
-  text-align: right;
-  float: right;
   line-height: 1em;
+  text-shadow: 2px 2px #3f3f3f;
 }
-
-.contactListTable{
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 100%;
-}
-
-.contactListTable thead tr{
-  background-color: #A4A280;
-  color: #FFFFFF;
-  text-align: left;
-}
-
-.contactListTable td{
-  padding: 12px 15px;
-
-}
-
-.contactListTable tbody tr{
-  border-bottom: 1px solid #000000;
-  background-color: #FFC904;
-  text-align: left;
-}
-
-.contactListTable tbody tr:nth-of-type(even){
-  background-color: #D4AE23;
-}
-
-.contactListTable tbody tr:nth-last-of-type{
-  border-bottom: #000000;
-}
-
-input {
-  padding: 2px 10px;
-  border: 0;
-  font-size: 20px;
-}
-
-.search {
-  width: 90%;
-}
-
-.submit {
-  width: 100px;
-  height: 50px;
-  background-color: #7d7857;
-  font-family: 'Fredoka One', cursive;
-  color: #ffffff;
-}
-
-.submitcontact{
-  width: 175px;
-  background-color: #6D6D56;
-  font-family: 'Fredoka One', cursive;
-  color: #ffffff;
-  height: 50px;
-  font-size: 20px;
-  display: inline-block;
-}
-
 .inputTags{
   font-family: 'Fredoka One', cursive;
   font-size: 20px;
 }
-
 .userInput{
-  width: 500px;
+  width: 80%;
 }
+
+/* Table (right) */
+.contactListTable{
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  min-width: 90%;
+}
+.contactListTable thead tr{
+  background-color: #7d7857;
+  color: #FFFFFF;
+  text-align: left;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  text-shadow: 2px 2px #3f3f3f;
+}
+.contactListTable td{
+  padding: 12px 15px;
+}
+.contactListTable tbody tr{
+  border-bottom: 1px solid #000000;
+  background-color: #FFC904;
+  text-align: left;
+  font-family: 'Helvetica';
+  font-size: 15px;
+}
+.contactListTable tbody tr:nth-of-type(even){
+  background-color: #D4AE23;
+}
+
 
 /*Button css*/
 .buttons{
@@ -159,11 +145,9 @@ input {
   font-weight: 500;
   cursor: pointer;
 }
-
 .buttons:hover{
   background-color: #5B5B48;
 }
-
 .buttons:active{
   background-color: #36362B;
 }
@@ -179,7 +163,6 @@ input {
   z-index: 1;
   display: none;
 }
-
 .popup .content{
   position: absolute;
   top: 50%;
@@ -189,11 +172,19 @@ input {
   width: 350px;
   height: 500px;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   padding: 20px;
   box-sizing: border-box;
+  color: #fff;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  text-shadow: 2px 2px #3f3f3f;
+  border: solid;
+  border-color: black;
 }
-
+.popup .content header{
+  text-align: center;
+}
 .popup .close-btn{
   cursor: pointer;
   position: absolute;
@@ -209,16 +200,13 @@ input {
   text-align: center;
   border-radius: 50%;
 }
-
 .popup.active .overlay{
   display: block;
 }
-
 .popup.active .content{
   transition: all 300ms ease-in-out;
   transform: translate(-50%,-50%) scale(1);
 }
-
 .editInput{
   width: 220px;
 }

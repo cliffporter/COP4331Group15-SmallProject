@@ -9,14 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel= "stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
-    <!--
-    <script type="text/javascript">
+  <!--  <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function()
     {
         readCookie();
     }, false);
-  </script>
--->
+  </script>-->
 </head>
 
 <!-- header -->
@@ -39,19 +37,19 @@
         <label for="newFirst" class="inputTags">First Name:</label>
         <br>
         <input type="text" id="editName" name="newName" class="editInput">
-        <br><br>
+        <br>
         <label for="newLast" class="inputTags">Last Name:</label>
         <br>
         <input type="text" id="editLast" name="newLast" class="editInput">
-        <br><br>
+        <br>
         <label for="newEmail" class="inputTags">Email:</label>
         <br>
         <input type="text" id="editEmail" name="newEmail" class="editInput">
-        <br><br>
+        <br>
         <label for="newPhone" class="inputTags">Phone Number:</label>
         <br>
         <input type="text" id="editPhone" name="newPhone" class="editInput">
-        <br><br>
+        <br>
         <button type="button" class= "buttons" onclick="doEdit()"> Edit Contact </button>
       </div>
 </div>
@@ -59,31 +57,32 @@
 <!-- Add new Contact -->
 <div class="split">
 
-<div class="contentcontainer">
-  <div style= "background-color: #A4A280; color:#FFFFFF; padding-top: 25px; padding-right: 50px; padding-left: 50px; padding-bottom: 25px">
+<div class="contentcontainerL">
+  <div class="addContactBox">
     <h1> Add Contact Here </h1>
     <label for="newFirst" class="inputTags">First Name:</label>
     <br>
-    <input type="text" id="newName" name="newName" class="userInput">
-    <br><br>
+    <input type="text" id="newName" name="newName" class="userInput" placeholder="John">
+    <br>
     <label for="newLast" class="inputTags">Last Name:</label>
     <br>
-    <input type="text" id="newLast" name="newLast" class="userInput">
-    <br><br>
+    <input type="text" id="newLast" name="newLast" class="userInput" placeholder="Doe">
+    <br>
     <label for="newEmail" class="inputTags">Email:</label>
     <br>
-    <input type="text" id="newEmail" name="newEmail" class="userInput">
-    <br><br>
+    <input type="text" id="newEmail" name="newEmail" class="userInput" placeholder="JohnDoe@hotmail.net">
+    <br>
     <label for="newPhone" class="inputTags">Phone Number:</label>
     <br>
-    <input type="text" id="newPhone" name="newPhone" class="userInput">
+    <input type="text" id="newPhone" name="newPhone" class="userInput" placeholder="1234567890">
     <br><br>
     <button type="button" class= "buttons" onclick="doAdd();">Add Contact&nbsp<i class="fa fa-plus" aria-hidden="true"></i></button>
+    <br>
     <span id="AddResult"></span>
   </div>
 </div>
 
-<div class="contentcontainer">
+<div class="contentcontainerR">
     <table class="contactListTable" id="contactList">
       <thead>
         <tr>
@@ -92,11 +91,9 @@
           <th>Number</th>
           <th>Edit</th>
           <th>Delete</th>
-          <th></th>
         </tr>
       </thead>
       <tbody id="contactList">
-
       </tbody>
     </table>
 </div>
