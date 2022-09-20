@@ -59,6 +59,18 @@ body{
   padding-left: 20px;
   padding-right: 20px;
   border-style: solid;
+  text-align: center;
+}
+.login h1{
+  
+}
+.login input{
+  width: 190px;
+}
+.login button{
+  width: 200px;
+  height: 30px;
+  text-align: center;
 }
 
 .register{
@@ -68,7 +80,6 @@ body{
 }
 
 .buttons{
-  display: inline-flex;
   background-color: #6D6D56;
   color: white;
   border: none;
@@ -88,15 +99,4 @@ body{
 
 .buttons:active{
   background-color: #36362B;
-}
-
-.button__text, .button__icon{
-  display: inline-flex;
-  align-items: center;
-  padding: 0 12px;
-  height: 100%;
-}
-
-.button__icon{
-  font-size: 1.5em;
 }
