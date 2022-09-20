@@ -7,8 +7,17 @@
 
 .header button{
   font-family: 'Fredoka One', cursive;
-  height: 30px;
+  height: 40px;
+  font-size: 25px;
   text-align: right;
+}
+
+.header input{
+  height: 40px;
+  width: 600px;
+  margin-left: 600px;
+  margin-top: 60px;
+  text-align= right;
 }
 
 .header h1{
