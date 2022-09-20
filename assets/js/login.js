@@ -218,8 +218,8 @@ function doSearch()
 					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
-					contactList += '<td><button type="button" onclick="onDeleteRow()" class="buttons">Edit</button></td>';
-					contactList += '<td><button type="button" onclick="onDeleteRow()" class="buttons">Delete</button></td>';
+					contactList += '<td><button type="button" onclick="doEdit('+jsonObject.results[i].id+')" class="buttons">Edit</button></td>';
+					contactList += '<td><button type="button" onclick="doDelete('+jsonObject.results[i].id+')" class="buttons">Delete</button></td>';
 					if( i < jsonObject.results.length - 1 )
 					{
 
@@ -239,52 +239,52 @@ function doSearch()
 
 }
 
-function onDeleteRow(){
-	alert('pog');
-}
-
-
-
-
-function doEdit()
-{
-
-}
-
-// function doDelete()
-// {
-// 	// (contact) = passed jsonObject.results[i]
-// 	// let id = contact["ID"];
-// 	let id = str["ID"];
-// 	let tmp = {ID:id};
-// 	let jsonPayload = JSON.stringify( tmp );
-//
-// 	let url = urlBase + '/deleteContact.' + extension;
-//
-// 	let xhr = new XMLHttpRequest();
-// 	xhr.open("POST", url, true);
-// 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-// 	try
-// 	{
-// 		xhr.onreadystatechange = function()
-// 		{
-// 			if (this.readyState == 4 && this.status == 200)
-// 			{
-// 				// remove entire row/contact from list
-// 				// refresh page
-//
-// 				document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
-//
-// 				window.location.reload();
-// 			}
-// 		};
-// 		xhr.send(jsonPayload);
-// 	}
-// 	catch(err)
-// 	{
-// 		document.getElementById("contactDeleteResult").innerHTML = err.message;
-// 	}
+// function onDeleteRow(id){
+// 	alert('id: ' + id);
 // }
+
+
+
+
+function doEdit(id)
+{
+	alert('edit btn '+id);
+}
+
+function doDelete(id)
+{
+	// (contact) = passed jsonObject.results[i]
+	// let id = contact["ID"];
+	//let id = str["ID"];
+	let tmp = {id:id};
+	let jsonPayload = JSON.stringify( tmp );
+
+	let url = urlBase + '/deleteContact.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			if (this.readyState == 4 && this.status == 200)
+			{
+				// remove entire row/contact from list
+				// refresh page
+
+				//document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
+
+				doSearch();
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		//document.getElementById("contactDeleteResult").innerHTML = err.message;
+	}
+}
 
 
 
