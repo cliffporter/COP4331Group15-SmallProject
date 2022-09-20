@@ -30,6 +30,32 @@
     <button type="button" class="buttons" onclick="doSearch();">Search!</button>
   </div>
 
+<!--Popup-->
+<div class="popup" id="popup-1">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="close-btn" onclick="togglePopup(0);">&times;</div>
+        <h1>Edit Info</h1>
+        <label for="newFirst" class="inputTags">First Name:</label>
+        <br>
+        <input type="text" id="editName" name="newName" class="editInput">
+        <br><br>
+        <label for="newLast" class="inputTags">Last Name:</label>
+        <br>
+        <input type="text" id="editLast" name="newLast" class="editInput">
+        <br><br>
+        <label for="newEmail" class="inputTags">Email:</label>
+        <br>
+        <input type="text" id="editEmail" name="newEmail" class="editInput">
+        <br><br>
+        <label for="newPhone" class="inputTags">Phone Number:</label>
+        <br>
+        <input type="text" id="editPhone" name="newPhone" class="editInput">
+        <br><br>
+        <button type="button" class= "buttons" onclick="doEdit()"> Edit Contact </button>
+      </div>
+</div>
+
 <!-- Add new Contact -->
 <div class="split">
 

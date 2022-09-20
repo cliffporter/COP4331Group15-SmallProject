@@ -7,6 +7,7 @@ const extension = 'php';
 let userId = 0;
 let firstName = "";
 let lastName = "";
+let contactId = 0;
 
 
 // Login in function that performs the login verification.
@@ -218,7 +219,7 @@ function doSearch()
 					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
-					contactList += '<td><button type="button" onclick="doEdit('+jsonObject.results[i].id+')" class="buttons">Edit</button></td>';
+					contactList += '<td><button type="button" onclick="togglePopup('+jsonObject.results[i].id+')" class="buttons">Edit</button></td>';
 					contactList += '<td><button type="button" onclick="doDelete('+jsonObject.results[i].id+')" class="buttons">Delete</button></td>';
 					if( i < jsonObject.results.length - 1 )
 					{
@@ -239,26 +240,55 @@ function doSearch()
 
 }
 
-// function onDeleteRow(id){
-// 	alert('id: ' + id);
-// }
-
-
-
-
-function doEdit(id)
+function doEdit()
 {
-	alert('edit btn '+id);
+	// let tmp = {phoneNumber:addPhone,name:fullName,userID:contactId,email:addEmail};
+	// let jsonPayload = JSON.stringify( tmp );
+	let editFirstName = document.getElementById("editName").value;
+  let editLastName = document.getElementById("editLast").value;
+  let editEmail = document.getElementById("editEmail").value;
+  let editPhone = document.getElementById("editPhone").value;
+  //document.getElementById("AddResult").innerHTML = "";
+  let editfullName = editFirstName + " " + editLastName;
+	//alert("Phone: "+editPhone+"Name: "+editfullName+"Email: "+editEmail+"ID: "+contactId);
+  let tmp = {phoneNumber:editPhone,name:editfullName,id:contactId,email:editEmail};
+  let jsonPayload = JSON.stringify( tmp );
+
+  let url = urlBase + '/editContact.' + extension;
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+  try
+  {
+      xhr.onreadystatechange = function()
+      {
+          if (this.readyState == 4 && this.status == 200)
+          {
+        // add success message here!
+						togglePopup(0);
+						doSearch();
+          }
+      };
+      xhr.send(jsonPayload);
+  }
+  catch(err)
+  {
+  // Add error message here!
+  }
 }
 
 function doDelete(id)
 {
-	// (contact) = passed jsonObject.results[i]
-	// let id = contact["ID"];
-	//let id = str["ID"];
+	let warning = window.confirm('Are you sure you want to delete this contact?');
+    if(!warning){
+        return;
+		}
+	//turns id into json object
 	let tmp = {id:id};
 	let jsonPayload = JSON.stringify( tmp );
 
+	//access json php
 	let url = urlBase + '/deleteContact.' + extension;
 
 	let xhr = new XMLHttpRequest();
@@ -270,11 +300,9 @@ function doDelete(id)
 		{
 			if (this.readyState == 4 && this.status == 200)
 			{
-				// remove entire row/contact from list
-				// refresh page
 
 				//document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
-
+				// refresh page
 				doSearch();
 			}
 		};
@@ -312,7 +340,7 @@ function doAdd()
 			if (this.readyState == 4 && this.status == 200)
 			{
 				document.getElementById("AddResult").innerHTML = "Contact has been added";
-
+				doSearch();
 				//setTimeout(function(){window.location.href = "contact.html";}, 1000);
 			}
 		};
@@ -323,4 +351,9 @@ function doAdd()
 		document.getElementById("AddResult").innerHTML = err.message;
 	}
 
+}
+
+function togglePopup(id){
+	contactId = id;
+  document.getElementById("popup-1").classList.toggle("active");
 }
