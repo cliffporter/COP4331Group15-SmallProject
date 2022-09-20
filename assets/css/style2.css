@@ -5,6 +5,12 @@
   width: 100%;
 }
 
+.header button{
+  font-family: 'Fredoka One', cursive;
+  height: 30px;
+  text-align: right;
+}
+
 .header h1{
   line-height: 5.5;
   text-align: center;
@@ -13,6 +19,7 @@
   width: 100%;
   font-family: 'Fredoka One', cursive;
 }
+
 
 body{
   font-family: Arial, Helvetica, sans-serif;
@@ -35,9 +42,28 @@ body{
   font-family: 'Fredoka One', cursive;
 }
 
+.contentcontainer h1{
+  font-family: 'Fredoka One', cursive;
+  font-size:45px;
+  text-align: center;
+}
+
 .contentcontainer{
   width: 50%;
   float: left;
+  font-family: 'Fredoka One', cursive;
+  font-size: 25px;
+  text-align: left;
+}
+
+
+.contentcontainer button{
+  width: 18%;
+  font-family: 'Fredoka One', cursive;
+  font-size: 20px;
+  text-align: right;
+  float: right;
+  line-height: 1em;
 }
 
 .contactListTable{
