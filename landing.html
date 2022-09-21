@@ -9,20 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <link rel= "stylesheet" href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css>
+
+    <!--
   <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function()
     {
         readCookie();
     }, false);
   </script>
-  <button type="button" class="buttons" onclick="logOut();">Sign Out</button>
+  --->
 </head>
+
 
 <!-- header -->
 <body>
+  <div class = "logout">
+    <button type="button" class="buttons" onclick="logOut();">Sign Out&nbsp<i class="fa fa-sign-out" aria-hidden="true"></i></button>
+  </div>
 
   <div class= "header">
-    <h1 style="font-size:45px">Contact Manager</h1>
+    <h1 style="font-size:55px">Contact Manager</h1>
     <br>
   <!-- Search Bar -->
     <input type="text" name="text" id="searchText" class= "search" placeholder="Search Contact Here!">
@@ -77,7 +83,7 @@
     <br>
     <input type="text" id="newPhone" name="newPhone" class="userInput" placeholder="1234567890">
     <br><br>
-    <button type="button" class= "buttons" onclick="doAdd();">Add Contact&nbsp<i class="fa fa-plus" aria-hidden="true"></i></button>
+    <button type="button" class= "buttons" onclick="doAdd();">Add Contact&nbsp&nbsp<i class="fa fa-plus" aria-hidden="true"></i></button>
     <br>
     <span id="AddResult"></span>
   </div>
@@ -87,11 +93,11 @@
     <table class="contactListTable" id="contactList">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Number</th>
-          <th>Edit</th>
-          <th>Delete</th>
+          <th style="text-align:center">Name</th>
+          <th style="text-align:center">Email</th>
+          <th style="text-align:center">Number</th>
+          <th style="text-align:center">Edit</th>
+          <th style="text-align:center">Delete</th>
         </tr>
       </thead>
       <tbody id="contactList">
