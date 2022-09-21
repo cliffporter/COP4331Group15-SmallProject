@@ -14,7 +14,7 @@
 .header input{
   height: 40px;
   width: 600px;
-  margin-left: 600px;
+  margin-left: 400px;
   margin-top: 60px;
   text-align= right;
 }
@@ -33,7 +33,7 @@
   float: right;
   font-size: 25px;
   height: 40px;
-  margin-right: 100px;
+  margin-right: 50px;
   display: inline-block;
   text-shadow: 2px 2px #3f3f3f;
 }
@@ -88,7 +88,7 @@ input{
   text-shadow: 2px 2px #3f3f3f;
   border: solid;
   border-color: #000;
-  margin-left: 80px;
+  margin-left: 60px;
 }
 .addContactBox h1{
   font-family: 'Fredoka One', cursive;
