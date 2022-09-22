@@ -136,6 +136,7 @@ try
 				document.getElementById("RegisterResult").innerHTML = "Server not responding";
 				return;
 			}
+			window.location.href = "index.html";
 		}
 	};
 	xhr.send(jsonPayload);
