@@ -201,6 +201,13 @@ input{
 .buttons:active{
   background-color: #36362B;
 }
+button .fa-edit {
+  margin-top: 4px;
+  margin-left: 2px;
+}
+button .fa-trash {
+  margin-top: 3px;
+}
 
 /*Popup css*/
 .popup .overlay{
