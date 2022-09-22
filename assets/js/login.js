@@ -195,6 +195,7 @@ function doSearch()
 	let srch = document.getElementById("searchText").value;
 	//document.getElementById("colorSearchResult").innerHTML = "";
 
+	let splitName = "";
 	let contactList = "";
 
 	let tmp = {search:srch,userID:userId, pageSize:100, pageNum:1};
@@ -216,11 +217,14 @@ function doSearch()
 
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
+
+					splitName = jsonObject.results[i].name.trim().split(" ");
+
 					contactList+="<tr>"
 					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
-					contactList += '<td><button type="button" onclick="togglePopup('+jsonObject.results[i].id+')" class="buttonsdelete"><i class="fa fa-edit blue-color" aria-hidden="true"></i></button></td>';
+					contactList += '<td><button type="button" onclick="togglePopup('+jsonObject.results[i].id+",'"+splitName[0]+"'"+",'"+splitName[1]+"'"+",'"+jsonObject.results[i].email+"'"+",'"+jsonObject.results[i].phoneNumber+"'"+')" class="buttonsdelete"><i class="fa fa-edit blue-color" aria-hidden="true"></i></button></td>';
 					contactList += '<td><button type="button" onclick="doDelete('+jsonObject.results[i].id+')" class="buttonsedit"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 					if( i < jsonObject.results.length - 1 )
 					{
@@ -266,7 +270,7 @@ function doEdit()
           if (this.readyState == 4 && this.status == 200)
           {
         // add success message here!
-						togglePopup(0);
+						togglePopup(0," "," "," "," ");
 						doSearch();
           }
       };
@@ -353,7 +357,15 @@ function doAdd()
 
 }
 
-function togglePopup(id){
+function togglePopup(id,firstName,lastName,email,phone){
 	contactId = id;
+  document.getElementById("popup-1").classList.toggle("active");
+	document.getElementById("editName").value = firstName;
+	document.getElementById("editLast").value = lastName;
+	document.getElementById("editEmail").value = email;
+	document.getElementById("editPhone").value = phone;
+}
+
+function togglePopup1(){
   document.getElementById("popup-1").classList.toggle("active");
 }
