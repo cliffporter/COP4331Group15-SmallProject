@@ -14,7 +14,7 @@
 .header input{
   height: 40px;
   width: 600px;
-  margin-left: 400px;
+  margin-left: 625px;
   margin-top: 60px;
   text-align= right;
 }
@@ -74,6 +74,13 @@ input{
   width: 65%;
   float: left;
   margin-left: 5%
+}
+
+.contentcontainerR td{
+  text-align:center;
+  font-family: 'Fredoka One', cursive;
+  font-size: 15px;
+
 }
 
 /* Add Contact Box (left) */

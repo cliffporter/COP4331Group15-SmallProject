@@ -220,11 +220,10 @@ function doSearch()
 					contactList += "<td>"+ jsonObject.results[i].name+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].email+"</td>";
 					contactList += "<td>"+ jsonObject.results[i].phoneNumber+"</td>";
-					contactList += '<td><button type="button" onclick="togglePopup('+jsonObject.results[i].id+')" class="buttons">Edit</button></td>';
-					contactList += '<td><button type="button" onclick="doDelete('+jsonObject.results[i].id+')" class="buttons">Delete</button></td>';
+					contactList += '<td><button type="button" onclick="togglePopup('+jsonObject.results[i].id+')" class="buttons"><i class="fa fa-edit blue-color" aria-hidden="true"></i></button></td>';
+					contactList += '<td><button type="button" onclick="doDelete('+jsonObject.results[i].id+')" class="buttons"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 					if( i < jsonObject.results.length - 1 )
 					{
-
 						contactList += "</tr>";
 					}
 				}
