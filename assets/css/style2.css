@@ -165,6 +165,36 @@ input{
   font-weight: 500;
   cursor: pointer;
 }
+
+.buttonsedit{
+  display: inline-flex;
+  background-color: #e12726;
+  color: white;
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.buttonsdelete{
+  display: inline-flex;
+  background-color: #1e1ad1;
+  color: white;
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
 .buttons:hover{
   background-color: #5B5B48;
 }
